@@ -27,12 +27,6 @@
     });
 
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: '/modules/core/client/views/home.client.view.html',
-        controller: 'HomeController',
-        controllerAs: 'vm'
-      })
       .state('not-found', {
         url: '/not-found',
         templateUrl: '/modules/core/client/views/404.client.view.html',
@@ -67,6 +61,26 @@
         data: {
           ignoreState: true
         }
+      })
+      .state('faq', {
+          url: '/faq',
+          templateUrl: '/modules/core/client/views/faq.client.view.html'
+      }).
+      state('home', {
+          url: '/home',
+          templateUrl: '/modules/core/client/views/home.client.view.html'
+      }).
+      state('terms-conditions', {
+          url: '/terms-conditions',
+          templateUrl: '/modules/core/client/views/terms-conditions.client.view.html'
+      }).
+      state('privacy-policy', {
+          url: '/privacy-policy',
+          templateUrl: '/modules/core/client/views/privacy-policy.client.view.html'
+      }).
+      state('california-privacy', {
+          url: '/california-privacy',
+          templateUrl: '/modules/core/client/views/california-privacy-policy.client.view.html'
       });
-  }
+    }
 }());

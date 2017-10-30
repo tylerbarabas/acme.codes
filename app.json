@@ -1,16 +1,9 @@
 {
-  "name": "meanjs",
-  "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
+  "name": "acme.codes",
+  "description": "Make your own three dimensional animated scan code",
   "repository": "https://github.com/meanjs/mean",
   "logo": "http://meanjs.org/img/logo-small.png",
-  "keywords": [
-    "mongodb",
-    "express",
-    "angularjs",
-    "node.js",
-    "mongoose",
-    "passport"
-  ],
+  "keywords": [],
   "addons": [
     {
       "plan": "mongolab:sandbox"

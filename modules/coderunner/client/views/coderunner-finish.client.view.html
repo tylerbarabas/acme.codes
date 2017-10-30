@@ -1,0 +1,36 @@
+<section id="finish-section" data-ng-controller="CoderunnerFinishController" ng-init="init()">
+	<div id="background-image"></div>
+	<div class="row final-modal" id="step-one">
+		<div class="col-sm-12 final">
+			<div ng-show="showPreview">
+				<h2>You're done!</h2>
+				<p>Below is your unlocked, animated code!</p>
+			</div>
+			<div class="code-container" ng-show="showPreview">
+				<img class="preview-image" ng-src="{{urls.preview}}">
+				<div class="finish-options">
+
+					<div>
+						<a href="{{urls.download}}">Download</a> | <a href="/#!/coderunner">Start Over</a>
+					</div>
+					<div>
+						<input placeholder="Type your email..." id="email-box" ng-disabled="disableEmail" type="text" ng-model="email">
+						<button class="btn btn-primary" id="email-button" ng-disabled="disableEmail" ng-click="sendEmail()">Email it</button>
+					</div>
+					<div>
+						{{msg}}
+					</div>
+				</div>
+			</div>
+			<div class="progress-container" ng-show="showProgressBar">
+				<h2 class="loading-finish-page" ng-show="!showPreview">Unlocking your code...</h2>
+				<div class="progress preview-progress">
+					<div class="progress-bar" role="progressbar" aria-valuenow="70"
+						 aria-valuemin="0" aria-valuemax="100" style="width:{{previewProgress}}%">
+						<span>{{previewProgress}}% Complete</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

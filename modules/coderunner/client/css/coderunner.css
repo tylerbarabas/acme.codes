@@ -1,0 +1,296 @@
+body {
+	background-color: #000;
+}
+#background-image {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+
+  width: 100%;
+  height:100%;
+
+  background-image: url('/modules/core/client/img/headernew.jpg');
+  background-size: 100% 130%;
+  background-repeat: no-repeat;
+
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+#step-status {
+    margin: auto;
+    margin-top: 100px;
+    width: 1000px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#step-status .innerbox {
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(27, 103, 141 ,0.5);
+    -webkit-transform: skew(-15deg);
+    -moz-transform: skew(-15deg);
+    -o-transform: skew(-15deg);
+    outline: thin solid #000000;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 25px;
+}
+#step-status .innerbox.active {
+    background-color: rgba(27, 103, 141 ,1);
+    color: #FFFF66;
+}
+.step-modal {
+    margin: 50px auto;
+    height: 600px;
+    width: 1000px;
+}
+.step-modal .menu {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #1B678D;
+    height: 100%;
+    padding: 15px;
+    color: #FFFFFF;
+}
+.step-modal .preview {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #F05F40;
+    height: 100%;
+    color: #FFFFFF;
+}
+
+.final-modal {
+    margin: 50px auto;
+    height: 600px;
+    width: 1000px;
+}
+
+.final-modal .final {
+  margin-top: 10%;
+  border-radius: 15px;
+  background-color: #F05F40;
+  height: 640px;
+  color: #FFFFFF;
+  text-align: center;
+}
+.final .finish-options {
+  margin-top: 435px;
+}
+.final a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.final a:hover {
+  text-decoration: underline;
+  color: #FFFFFF;
+}
+.final a:visited {
+  color: #FFFFFF;
+}
+.step-modal {
+  opacity: 1;
+}
+.step-modal.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.step-modal.ng-hide {
+  opacity: 0;
+}
+.payment-total {
+    font-size: 25px;
+    color: #ffffff;
+    margin-top: 50px;
+}
+.preview .code-container {
+    margin: 50px auto;
+    height: 500px;
+    width: 400px;
+    text-align: center;
+}
+.preview .progress-container {
+    margin: 50px auto;
+    height: 400px;
+    width: 400px;
+    text-align: center;
+}
+.file-drop {
+    outline: dashed #000;
+}
+#step-two.menu #animation-menu {
+    height: 75%;
+    margin: 0;
+    outline: 2px solid black;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: rgba(255,255,255,.2);
+}
+#step-two.menu #animation-menu .animation-category-selection {
+    display: inline-block;
+    font-size: 27px;
+    padding: 30px;
+    padding-right: 0;
+    padding-bottom: 0;
+    width: 46%;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 8px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+    text-transform: capitalize;
+    list-style-type: none;
+}
+#step-two.menu #animation-menu .animation-menu-category .animation-category-selection.active {
+    background-color: #1B678D;
+    border: 1px solid #FFFF66;
+}
+#step-two.menu #animation-menu .animation-menu-category .animation-category-selection.active .glyphicon-arrow-right {
+    float: right;
+}
+
+#step-one .menu .step-one-input {
+    margin-top: 40px;
+}
+
+.menu label {
+    font-size: 20px;
+}
+.preview-image {
+    position: absolute;
+    top: 0;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: auto auto;
+    max-width: 90%;
+    max-height: 60%;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.half-helper {
+    display: inline-block;
+    height: 39%;
+    vertical-align: middle;
+}
+.progress-container .progress.preview-progress {
+    width: 80%;
+    margin: 0 auto;
+}
+.button-container {
+    text-align: center;
+}
+
+
+#preview-cover {
+  height: 550px;
+  width: 500px;
+  background-color: #F05F40;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 45%;
+  border-radius: 15px;
+
+  opacity: 1;
+  transition: 1s;
+}
+
+#preview-cover.ng-hide {
+  opacity: 0;
+}
+
+.section-header {
+  font-size: 20px;
+  margin: 5px;
+}
+
+.space-btns {
+    /*margin-top: 50px;*/
+}
+
+.back-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.forward-btn {
+  position: absolute;;
+  bottom: 10px;
+  right: 10px;
+}
+#terms-conditions {
+  margin: 0;
+}
+#terms-conditions-container {
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+}
+.loading-finish-page {
+  margin-top: 20%;
+}
+#finish-section #email-box {
+  color: #000;
+  margin: 10px;
+}
+#finish-section #email-button {
+  background-color: green;
+}
+#error-503 .modal-content {
+  border-radius: 16px;
+}
+#error-503 .modal-body {
+  background-color: #1B678D;
+  color: #FFF;
+  border-radius: 15px; 
+}
+#error-503 .modal-body h2 {
+  color: yellow;
+  margin-top: -10px;
+}
+#error-503 .modal-body .close {
+  color: yellow;
+  opacity: 0.8;
+}
+#error-503 .modal-body .close:hover {
+  opacity: 1;
+}
+.creating-code {
+    font-size: 15px;
+    color: #1B678D;
+}
+.cloud-icon-container {
+    height: 80px;
+    width: 400px;
+    position: absolute;
+    bottom: 70px;
+    text-align: center;
+}
+.cloud-icon {
+    height: 65px;
+    width: 65px; 
+    background: url(/modules/coderunner/client/img/cloud.png) 100% 100%;
+}
+.cloud-msg u {
+    cursor: pointer;
+}

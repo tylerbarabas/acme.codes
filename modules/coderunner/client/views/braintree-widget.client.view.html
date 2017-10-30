@@ -1,0 +1,24 @@
+<h1 class="center-block">Purchase QR Code</h1>
+
+<div ng-show="!showSuccess">
+    <h3>Total: {{displayTotal}}</h3>
+    <h3>{{encodeString}} <small style="color: orange; cursor: pointer" ng-click="changeCurrentStep(1)">Edit</small></h3>
+    <form>
+        <div id="payment-form">
+        </div>
+
+        <p class="animated" id="terms-conditions-container">
+          <input type="checkbox" id="terms-conditions" ng-model="disableSubmit">
+          I agree to the <a href="/#!/terms-conditions" target="_blank" id="terms-link">terms and conditions</a>.
+        </p>
+
+        <button id="back3" type="button" ng-click="changeCurrentStep(2)" class="btn btn-primary space-btns back-btn"><i class="fa fa-arrow-left"></i> Animate</button>
+        <button id="submit-payment" type="submit" ng-disabled="!disableSubmit" ng-hide="hideSubmit" class="btn btn-success space-btns forward-btn">Submit<i class="fa fa-arrow-right"></i></button>
+    </form>
+</div>
+<div ng-show="showSuccess" id="success" class="form-msg">
+    <p>Your payment is successful! <br><br> Please wait while we unlock your code...</p>
+</div>
+<div ng-show="showError" id="failure" class="form-msg">
+    <p>{{errorMsg}}</p>
+</div>

@@ -1,5 +1,7 @@
 'use strict';
 
+var braintree = require( 'braintree' );
+
 module.exports = {
   app: {
     title: 'MEAN.JS',
@@ -10,7 +12,7 @@ module.exports = {
   db: {
     promise: global.Promise
   },
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 3001,
   host: process.env.HOST || '0.0.0.0',
   // DOMAIN config should be set to the fully qualified application accessible
   // URL. For example: https://www.myapp.com (including port if required).
@@ -72,6 +74,15 @@ module.exports = {
       minPhraseLength: 20,
       minOptionalTestsToPass: 4
     }
-  }
+  },
+  apiDomain: 'https://api.acme.codes',
+//  apiDomain: 'http://pcmiller.api.acme.codes',
+    braintree: {
+        environment: braintree.Environment.Sandbox,
+        merchantId: 'bzj2z7nnqwprrjdx',
+        publicKey: 'xgvc6n8p7wdk2z97',
+        privateKey: 'd3879a4a76d4698a77bdd62d4cc3b5c1'
+    }
+
 
 };

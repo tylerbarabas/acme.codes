@@ -1,25 +1,42 @@
-(function () {
-  'use strict';
+'use strict';
 
-  angular
-    .module('core')
-    .controller('HeaderController', HeaderController);
+angular.module('core').controller('HeaderController', ['$scope', '$location', 'Authentication', 'Menus',
+	function($scope, $location, Authentication, Menus) {
+		$scope.authentication = Authentication;
 
-  HeaderController.$inject = ['$scope', '$state', 'Authentication', 'menuService'];
+		$scope.toggleNavbar = function($event) {
+			var target = $event.target.attributes[2].value.split('#!')[1],
+			    loc = $location.url();
+                        if (document.body.offsetWidth < 750){
+                                $('#navbar-toggle').click();
+                        }
+			if ((target === '/' || target[1] === '#') && (loc === '/' || loc[1] === '#')) {
+				target = (target.length > 1) ? $(target.split('/')[1]) : $('#home');
+				if (target.length) {
+					scrollTo(target.offset().top);
+					return false;
+				}
+			} else {
+				$location.url(target);
+			}
 
-  function HeaderController($scope, $state, Authentication, menuService) {
-    var vm = this;
+		};
 
-    vm.accountMenu = menuService.getMenu('account').items[0];
-    vm.authentication = Authentication;
-    vm.isCollapsed = false;
-    vm.menu = menuService.getMenu('topbar');
+		var scrollTo = function(top) {
+			$('html,body').animate({
+				scrollTop: top - 100
+			}, 500);
+		};
 
-    $scope.$on('$stateChangeSuccess', stateChangeSuccess);
+		var mainHeader = $('#main-header');
 
-    function stateChangeSuccess() {
-      // Collapsing the menu after navigation
-      vm.isCollapsed = false;
-    }
-  }
-}());
+		$(window).scroll(function (event) {
+			var scroll = $(window).scrollTop();
+			if (scroll > 10) {
+				mainHeader.addClass('scroll-down');
+			} else {
+				mainHeader.removeClass('scroll-down');
+			}
+		});
+	}
+]);

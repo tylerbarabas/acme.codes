@@ -1,0 +1,118 @@
+<section data-ng-controller="CoderunnerController">
+	<div id="background-image"></div>
+	<div id="step-status" class="row">
+		<div class="col-sm-4 innerbox" ng-class="{active: currentStep == 1}" ng-click="changeCurrentStep(1)">
+			1 - Create Code
+		</div>
+		<div class="col-sm-4 innerbox" ng-class="{active: currentStep == 2}" ng-click="changeCurrentStep(2)">
+			2 - Choose Animation
+		</div>
+		<div class="col-sm-4 innerbox" ng-class="{active: currentStep == 3}" ng-click="changeCurrentStep(3)">
+			3 - Buy
+		</div>
+	</div>
+	<div class="row step-modal" id="step-one">
+		<div class="col-sm-6 menu" ng-show="currentStep == 1">
+		<p class='section-header'>Create Code</p>
+		<div class="form-group step-one-input">
+			<label for="encode-string">Your code message</label>
+			<input type="text" placeholder="www.example.com" id="encode-string" ng-model="encodeString" class="form-control">
+		</div>
+		<div class="form-group step-one-input">
+			<label for="resolution">Size</label>
+			<select id="resolution" ng-model="resolution" class="form-control">
+				<option value="100">100 x 100</option>
+				<option value="200">200 x 200</option>
+				<option value="300">300 x 300</option>
+				<option value="400">400 x 400</option>
+				<option value="400">Higher Res: Contact ACME</option>
+			</select>
+		</div>
+		<div class="form-group step-one-input">
+			<label for="pixel-shape">Shape</label>
+			<select id="pixel-shape" ng-model="orderParams.tileShape" class="form-control">
+				<option value="square">Square</option>
+				<option value="circle">Circle</option>
+			</select>
+		</div>
+		<div class="form-group">
+        
+            <label for="pixel-color">Color</label>
+		<input type="color" id="pixel-color" ng-model="orderParams.pixelColor" class="form-control">
+		</div>
+		<div class="form-group">
+		<label for="background-color">Background</label>
+		<input type="color" id="background-color" ng-model="orderParams.bgpColor" class="form-control">
+		</div>
+        <div class="form-group">
+        <label for="stencil">Stencil <small>On/Off</small></label>
+        <input type="checkbox" id="stencil" ng-model="orderParams.stencil">
+        </div>
+		<div class="button-container">
+			<button type="button" ng-click="changeCurrentStep(2)" class="btn btn-primary space-btns forward-btn">Animate <i class="fa fa-arrow-right"></i></button>
+		</div>
+	</div>
+
+		<div class="col-sm-6 menu" id="step-two" ng-show="currentStep == 2">
+			<p class='section-header'>Animate</p>
+			<animation-selector></animation-selector>
+			<div class="button-container">
+				<button type="button" ng-click="changeCurrentStep(1)" class="btn btn-primary space-btns back-btn"><i class="fa fa-arrow-left"></i> Edit code</button>
+				<button type="button" ng-disabled="!canBuy" ng-click="changeCurrentStep(3)" class="btn btn-primary space-btns forward-btn">Buy {{buttonPrice}}<i class="fa fa-arrow-right"></i></button>
+			</div>
+		</div>
+
+		<div class="col-sm-6 menu" id="step-three" ng-show="currentStep == 3">
+			<braintree-widget encode-string="encodeString" display-total="buttonPrice"  total="total" order-number="orderNumber"></braintree-widget>
+		</div>
+
+		<div class="col-sm-6 preview">
+			<div ng-class="{'code-container': true, 'file-drop': currentStep == 2}" ng-show="showPreview" file-drop>
+                <input type="file" mame="image-select" id="image-select" style="display: none">
+				<preview-img class="preview-image" url="{{preview}}"></preview-img>
+				<div id="preview-cover" ng-show="showPreviewButton">
+					<button type="button" ng-click="sendOrder()" class="btn btn-success space-btn">Preview</button>
+				</div>
+                <div class="cloud-icon-container" ng-show="currentStep == 2">
+                    <img src="/modules/coderunner/client/img/cloud.png" class="cloud-icon">
+                    <p class="cloud-msg">Drop files to attach, or <u>browse.</u></p>
+                </div>
+			</div>
+			<div class="progress-container" ng-show="showProgressBar">
+				<span class="half-helper"></span>
+				<img src="/modules/coderunner/client/img/loading2.gif" style="margin-top: 100px">
+				<div class="progress preview-progress">
+					<div class="progress-bar" role="progressbar" aria-valuenow="70"
+						 aria-valuemin="0" aria-valuemax="100" style="width:{{previewProgress}}%">
+						<span>{{previewProgress}}% Complete</span>
+					</div>
+				</div>
+				<div class="creating-code">
+					Creating code {{encodeString}}
+				</div>
+			</div>
+		</div>		
+	</div>
+</section>
+<div class="modal fade" id="error-503">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<div class="row">
+		<div class="col-xs-4">
+			<img src="/modules/core/client/img/logo_small.png" class="img-responsive">
+		</div>
+		<div class="col-xs-8">
+			<h2>Oh no!</h2>
+			<p>The ACME Animation Engine is temporarily over-capacity.  Have a coffee and come back soon!</p>
+			<p><small>Current overflow order queue count: <span id="pipeline-backup"></span></small></p>
+
+		</div>
+	</div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
