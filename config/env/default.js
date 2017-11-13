@@ -4,9 +4,9 @@ var braintree = require( 'braintree' );
 
 module.exports = {
   app: {
-    title: 'MEAN.JS',
-    description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
-    keywords: 'mongodb, express, angularjs, node.js, mongoose, passport',
+    title: 'ACME.CODES',
+    description: 'Create your own animated QR codes!',
+    keywords: 'QR Code, qr, code, animation, animations, made easy',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },
   db: {

@@ -32,7 +32,7 @@ angular.module('coderunner').directive('fileDrop', ['$http','$rootScope',
 //                    sendFile(e.dataTransfer.files[0]);
 				});
                 
-                var sendFile = (file) => {
+                var sendFile = function (file) {
                     
 					var formData = new FormData();
 					formData.append('file',file);
