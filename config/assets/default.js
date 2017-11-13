@@ -8,10 +8,9 @@ module.exports = {
       css: [
         // bower:css
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-        'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
         'public/lib/font-awesome/css/font-awesome.min.css',
-        'public/lib/animate-css/animate.css'
+        'public/lib/animate-css/animate.css',
+        'public/lib/jquery/dist/jquery-ui.css'
         // endbower
       ],
       js: [

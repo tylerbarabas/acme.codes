@@ -1,12 +1,13 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', '$location', 'Authentication', 'Menus',
-	function($scope, $location, Authentication, Menus) {
+angular.module('core').controller('HeaderController', ['$scope', '$location', 'Authentication',
+	function($scope, $location, Authentication) {
 		$scope.authentication = Authentication;
 
 		$scope.toggleNavbar = function($event) {
-			var target = $event.target.attributes[2].value.split('#!')[1],
+			var target = $event.target.attributes[2].value,
 			    loc = $location.url();
+            console.log('target', target);
                         if (document.body.offsetWidth < 750){
                                 $('#navbar-toggle').click();
                         }
