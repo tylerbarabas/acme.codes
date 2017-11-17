@@ -6,7 +6,7 @@ angular.module('coderunner').controller('CoderunnerController', ['$scope','$root
 		Api.getDomain();
 		var defaultValues = {
 			encodeString: '',
-			resolution: 400,
+			resolution: '400',
 			tileShape: 'square',
 			bgpColor: '#FFFFFF',
 			pixelColor: '#000000',
