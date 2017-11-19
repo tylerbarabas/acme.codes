@@ -51,16 +51,16 @@ angular.module('coderunner').controller('CoderunnerController', ['$scope','$root
 			$scope.currentStep = step;
 		};
 
-        
+
 
 		var checkProgress = null;
 		$scope.sendOrder = function() {
-			if (checkProgress !== null) { 
+			if (checkProgress !== null) {
 				clearInterval(checkProgress);
 			}
 
             if ($scope.currentStep === 1) {
-                $scope.fbx = 0; 
+                $scope.fbx = 0;
             }
 
             $scope.showProgressBar = true;
@@ -68,7 +68,7 @@ angular.module('coderunner').controller('CoderunnerController', ['$scope','$root
             $scope.previewProgress = 0;
 
 			Api.sendOrder($scope.orderParams).then(function(res){
-				
+
 				if (typeof res === 'object') {
 					$scope.showPreview = true;
 					$scope.showProgressBar = false;
@@ -125,28 +125,18 @@ angular.module('coderunner').controller('CoderunnerController', ['$scope','$root
 			});
 		};
 
-		$rootScope.$on('image-uploaded',function(e,path){
-		    var $full_location = $location.absUrl();
-		    var $fl_parsed = $full_location.split('://');
-            var $sub_doms = $fl_parsed[1].split('.');
-            var $sub_dom;
-            if ($sub_doms.length >= 3)
-                {
-                $sub_dom = $sub_doms[0] + '.';
-                }
-            else
-                {
-                $sub_dom = '';
-                };
-		    var $img_url = $location.protocol() + '://' +
-		                   $sub_dom +
-		                   'acme.codes';
-			$scope.orderParams.img1 = $img_url + path;
-    		if ($scope.currentStep !== 1) {
-                $scope.orderParams.anim = 'uploadImageConfirmation';
-	            _sendOrderBuffer();
+		$rootScope.$on('image-uploaded',function(e, path)
+        {
+        var $cur_url = $location.absUrl();
+        // Remove trailing slash
+        var $cur_url_trimmed = $cur_url.slice(0, -1)
+  			$scope.orderParams.img1 = $cur_url_trimmed + path;
+        if ($scope.currentStep !== 1)
+    		    {
+            $scope.orderParams.anim = 'uploadImageConfirmation';
+            _sendOrderBuffer();
             }
-		});
+		    });
 
 
 		var myWatchList = [
@@ -171,7 +161,7 @@ angular.module('coderunner').controller('CoderunnerController', ['$scope','$root
             if (typeof $scope.orderParams.frameNumber !== 'undefined'){
                 delete $scope.orderParams.frameNumber;
             }
-			if (animation !== '') { 
+			if (animation !== '') {
 				$scope.total = price;
 				$scope.orderParams.anim = animation;
 				$scope.buttonPrice = '$'+parseFloat(price).toFixed(2);
