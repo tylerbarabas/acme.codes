@@ -1,6 +1,6 @@
 <div id="animation-menu">
 	<li class="animation-category-selection" ng-repeat="(key, value) in animations" ng-click="setPath(key,value.price)">
-		<p>{{key}}</p>
+		<p>{{key.replace('_', ' ')}}:</p>
 		<img ng-src="https://api.acme.codes/anims/{{key}}/thumbnails/anim">
 	</li>
 </div>
