@@ -76,7 +76,6 @@ module.exports = {
     }
   },
   apiDomain: 'https://api.acme.codes',
-//  apiDomain: 'http://pcmiller.api.acme.codes',
     braintree: {
         environment: braintree.Environment.Sandbox,
         merchantId: 'bzj2z7nnqwprrjdx',
