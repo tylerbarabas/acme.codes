@@ -1,4 +1,4 @@
-<section data-ng-controller="CoderunnerController">
+<section data-ng-controller="CoderunnerController">  
 	<div id="background-image"></div>
 	<div id="step-status" class="row">
 		<div class="col-sm-4 innerbox" ng-class="{active: currentStep == 1}" ng-click="changeCurrentStep(1)">
@@ -75,7 +75,7 @@
 				</div>
                 <div class="cloud-icon-container" ng-show="currentStep == 2">
                     <img src="/modules/coderunner/client/img/cloud.png" class="cloud-icon">
-                    <p class="cloud-msg">Drop files to attach, or <u>browse.</u></p>
+                    <p class="cloud-msg">Drop files to attach<sup>*</sup>, or <u>browse.</u><br><br><small>* Drop not supported on all platforms</small></p>
                 </div>
 			</div>
 			<div class="progress-container" ng-show="showProgressBar">
