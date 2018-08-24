@@ -172,7 +172,7 @@ exports.upload = function(req, res) {
 exports.unlock = function(req,res) {
     if (typeof req.body.orderNumber === 'string') {
       var orderNumber = req.body.orderNumber.split('_'),
-      md5 = crypto.createHash('md5').update((parseInt(orderNumber[0]) - 94005000)+'_'+orderNumber[1]).digest('hex');
+      md5 = crypto.createHash('md5').update((parseInt(orderNumber[0]) - config.elephant)+'_'+orderNumber[1]).digest('hex');
       var clientIp = (typeof req.headers['x-forwarded-for'] === 'object')?req.headers['x-forwarded-for'][0]:req.headers['x-forwarded-for'];
       request.post(domain+'/orders/'+orderNumber[0]+'_'+orderNumber[1]+'/'+md5+'?ip='+clientIp,{},function(error,response,body){
         res.status(200).send(true);

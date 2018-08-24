@@ -81,7 +81,8 @@ module.exports = {
         merchantId: 'bzj2z7nnqwprrjdx',
         publicKey: 'xgvc6n8p7wdk2z97',
         privateKey: 'd3879a4a76d4698a77bdd62d4cc3b5c1'
-    }
+    },
+    elephant: 94005000
 
 
 };
